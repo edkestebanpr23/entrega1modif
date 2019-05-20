@@ -1,4 +1,0 @@
-El estudiante Esteban
-Con cedula 12345
-Se ha matriculado al curso de Desarrollo de Videojuegos Unity
-Que tiene una duración de 52 horas Y un valor de $60.
