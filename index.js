@@ -1,5 +1,9 @@
 const { cursos } = require('./data');
 let fs = require('fs');
+
+var express = require('express')
+var app = express()
+
 const opciones = {
     id: {
         demand: true,
@@ -54,12 +58,27 @@ let crearArchivo = (curso) => {
 if (argv.id) {
     let curso = cursos.find(curse => curse.id == argv.id);
     if (curso) {
-        crearArchivo(curso);
+        // crearArchivo(curso);
+        
+
+        let texto = '<br><p>El estudiante <b><i>' + argv.name + n + 
+                '</i></b>Con cedula <b>' + argv.document + n +
+                '</b><br><br>Se ha matriculado al curso de <b>' + curso.nombre + n +
+                '</b><br>El cual tiene una duración de <b>' + curso.duracion + ' horas <b>' +
+                'Y un valor de <b><i>$' + curso.valor + "</i></b>.</p>";
+
+        app.use(express.static(__dirname + '/public'))
+        app.get('/', function(req, res) {
+            res.send(texto)
+        })
+        app.listen(3000)
     } else {
         listado();
     }
 } else {
     listado();
 }
+
+
 
 
